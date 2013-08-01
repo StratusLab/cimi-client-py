@@ -1,0 +1,98 @@
+<project
+  xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>eu.stratuslab.cimi</groupId>
+  <artifactId>cimi-client-py</artifactId>
+  <version>13.05.1-SNAPSHOT</version>
+  <name>StratusLab CIMI Client (POM)</name>
+
+  <url>http://github.com/StratusLab/cimi-client-py</url>
+
+  <description>
+Provides a CIMI (Cloud Infrastructure Management Interface) client 
+written in Python.  This provides both a command line interface for
+direct use and a library for programmatic access.
+</description>
+
+  <packaging>pom</packaging>
+
+  <parent>
+    <groupId>eu.stratuslab</groupId>
+    <artifactId>distribution</artifactId>
+    <version>13.05.1-SNAPSHOT</version>
+  </parent>
+
+  <modules>
+    <module>code</module>
+    <module>pypi</module>
+  </modules>
+
+  <profiles>
+    <profile>
+      <id>build-rpm</id>
+      <activation>
+        <file>
+          <exists>/usr/bin/rpmbuild</exists>
+        </file>
+      </activation>
+      <modules>
+        <module>rpm</module>
+      </modules>
+    </profile>
+  </profiles>
+
+  <issueManagement>
+    <system>GitHub Issues</system>
+    <url>https://github.com/StratusLab/cimi-client-py/issues</url>
+  </issueManagement>
+
+  <scm>
+    <connection>scm:git:ssh://git@github.com/StratusLab/cimi-client-py.git</connection>
+    <developerConnection>scm:git:ssh://git@github.com/StratusLab/cimi-client-py.git</developerConnection>
+  </scm>
+
+  <repositories>
+
+    <repository>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+      <id>POMReleases</id>
+      <name>POM Releases</name>
+      <url>http://repo.stratuslab.eu:8081/content/repositories/releases</url>
+    </repository>
+
+    <repository>
+      <releases>
+        <enabled>false</enabled>
+      </releases>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+      <id>POMSnapshots</id>
+      <name>POM Snapshots</name>
+      <url>http://repo.stratuslab.eu:8081/content/repositories/snapshots</url>
+    </repository>
+
+  </repositories>
+
+  <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>build-helper-maven-plugin</artifactId>
+          <version>1.8</version>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+
+</project>
