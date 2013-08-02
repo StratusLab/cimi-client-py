@@ -118,7 +118,7 @@ PyPy packaging of StratusLab cimi client.
             <configuration>
               <artifacts>
                 <artifact>
-                  <file>${basedir}/target/pypi-pkg/dist/cimi-client-py-${project.version}.tar.gz</file>
+                  <file>${basedir}/target/pypi-pkg/dist/stratuslab-cimi-client-${project.version}.tar.gz</file>
                   <type>tar.gz</type>
                 </artifact>
               </artifacts>
