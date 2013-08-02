@@ -4,7 +4,7 @@ import os
 import os.path
 
 try:
-    rootdir = os.path.join('lib','stratuslab','python')
+    rootdir = os.path.join('python')
     for file in os.listdir(rootdir):
         src = os.path.join(rootdir, file)
         os.symlink(src, file)
