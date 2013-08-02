@@ -14,7 +14,7 @@
       <directory>${project.build.directory}/python</directory>
       <directoryMode>755</directoryMode>
       <fileMode>644</fileMode>
-      <outputDirectory>python</outputDirectory>
+      <outputDirectory></outputDirectory>
       <excludes>
         <exclude>**/*.pyc</exclude>
       </excludes>

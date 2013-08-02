@@ -22,22 +22,22 @@ setup(
     description='${project.description}',
     long_description=open('README.txt').read(),
 
-    scripts=[
-        'bin/cimi',
-        ],
+#    scripts=[
+#        'bin/cimi',
+#        ],
 
      packages=[
-        'stratuslab',
-        'stratuslab.cimi',
+        'cimi',
+        'cimi.client',
         ],
 
-    data_files=[
-        ('java', ['java/metadata-${metadata.version}-jar-with-dependencies.jar']),
-        ('share/vm', ['share/vm/schema.one']),
-        ('share/template', ['share/template/manifest.xml.tpl']),
-        ('conf', ['conf/stratuslab-user.cfg.ref']),
-        ('Scripts', ['windows/cimi.bat']),
-        ],
+#    data_files=[
+#        ('java', ['java/metadata-${metadata.version}-jar-with-dependencies.jar']),
+#        ('share/vm', ['share/vm/schema.one']),
+#        ('share/template', ['share/template/manifest.xml.tpl']),
+#        ('conf', ['conf/stratuslab-user.cfg.ref']),
+#        ('Scripts', ['windows/cimi.bat']),
+#        ],
 
     classifiers=[
         'Development Status :: 1 - Planning',

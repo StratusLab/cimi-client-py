@@ -2,7 +2,7 @@
 
   <modelVersion>4.0.0</modelVersion>
 
-  <artifactId>stratuslab-cimi-client-py-pkg</artifactId>
+  <artifactId>cimi-client-py-pkg</artifactId>
   <name>StratusLab CIMI Client (PKG)</name>
   <packaging>pom</packaging>
 
