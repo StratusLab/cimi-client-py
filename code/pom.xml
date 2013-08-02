@@ -12,6 +12,46 @@
     <version>13.05.1-SNAPSHOT</version>
   </parent>
 
+  <profiles>
+    <profile>
+      <id>nosetests</id>
+      <activation>
+        <property>
+          <name>!NONOSETESTS</name>
+        </property>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>exec-maven-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>python-test</id>
+                <phase>test</phase>
+                <goals>
+                  <goal>exec</goal>
+                </goals>
+                
+                <configuration>
+                  <executable>nosetests</executable>
+                  <workingDirectory>${basedir}/src/test/python/</workingDirectory>
+                  <arguments>
+                    <argument>-c</argument>
+                    <argument>nosetests.ini</argument>
+                  </arguments>
+                  <environmentVariables>
+                    <PYTHONPATH>${basedir}/src/main/python</PYTHONPATH>
+                  </environmentVariables>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
+
   <build>
 
     <plugins>
@@ -50,6 +90,28 @@
             </configuration>
 
           </execution>
+
+          <execution>
+            <id>copy-sources</id>
+            <phase>process-sources</phase>
+            <goals>
+              <goal>copy-resources</goal>
+            </goals>
+
+            <configuration>
+              <delimiters>
+                <delimiter>${*}</delimiter>
+              </delimiters>
+              <outputDirectory>${project.build.directory}/python</outputDirectory>
+              <resources>
+                <resource>
+                  <directory>src/main/python</directory>
+                  <filtering>true</filtering>
+                </resource>
+              </resources>
+            </configuration>
+
+          </execution>
         </executions>
 
       </plugin>
@@ -69,7 +131,7 @@
             <configuration>
               <appendAssemblyId>false</appendAssemblyId>
               <descriptors>
-                <descriptor>main/assembly/bundle.xml</descriptor>
+                <descriptor>src/main/assembly/bundle.xml</descriptor>
               </descriptors>
             </configuration>
           </execution>
@@ -78,70 +140,27 @@
 
       </plugin>
 
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-dependency-plugin</artifactId>
-
-        <executions>
+      <!--
+          <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>exec-maven-plugin</artifactId>
+          <executions>
           <execution>
-            <id>unpack-core-sources</id>
-            <phase>generate-sources</phase>
-            <goals>
-              <goal>unpack</goal>
-            </goals>
-            <configuration>
-              <outputDirectory>${project.build.directory}/zip-sources</outputDirectory>
-              <artifactItems>
-                <artifactItem>
-                  <groupId>eu.stratuslab.client</groupId>
-                  <artifactId>stratuslab-core-zip</artifactId>
-                  <classifier>core-bundle</classifier>
-                  <type>zip</type>
-                </artifactItem>
-              </artifactItems>
-            </configuration>
+          <phase>process-sources</phase>
+          <goals>
+          <goal>exec</goal>
+          </goals>
           </execution>
-          <execution>
-            <id>copy-metadata-jar</id>
-            <phase>generate-sources</phase>
-            <goals>
-              <goal>copy</goal>
-            </goals>
-            <configuration>
-              <outputDirectory>${project.build.directory}/jar</outputDirectory>
-              <artifactItems>
-                <artifactItem>
-                  <groupId>eu.stratuslab.metadata</groupId>
-                  <artifactId>metadata</artifactId>
-                  <classifier>jar-with-dependencies</classifier>
-                  <type>jar</type>
-                </artifactItem>
-              </artifactItems>
-            </configuration>
-          </execution>
-        </executions>
-
-      </plugin>
-
-      <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>exec-maven-plugin</artifactId>
-        <executions>
-          <execution>
-            <phase>process-sources</phase>
-            <goals>
-              <goal>exec</goal>
-            </goals>
-          </execution>
-        </executions>
-        <configuration>
-	  <executable>/bin/bash</executable>
-	  <arguments>
-	    <argument>-c</argument>
-	    <argument>main/scripts/create-windows-stubs.py</argument>
-	  </arguments>
-	</configuration>
-      </plugin>
+          </executions>
+          <configuration>
+          <executable>/bin/bash</executable>
+          <arguments>
+          <argument>-c</argument>
+          <argument>main/scripts/create-windows-stubs.py</argument>
+          </arguments>
+          </configuration>
+          </plugin>
+      -->
 
     </plugins>
 

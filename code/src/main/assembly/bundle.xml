@@ -1,0 +1,25 @@
+<assembly>
+  <id>core-bundle</id>
+  
+  <includeBaseDirectory>false</includeBaseDirectory>
+  
+  <formats>
+    <format>zip</format>
+    <format>tar.gz</format>
+  </formats>
+  
+  <fileSets>
+    
+    <fileSet>
+      <directory>${project.build.directory}/python</directory>
+      <directoryMode>755</directoryMode>
+      <fileMode>644</fileMode>
+      <outputDirectory>python</outputDirectory>
+      <excludes>
+        <exclude>**/*.pyc</exclude>
+      </excludes>
+    </fileSet>
+    
+  </fileSets>
+  
+</assembly>
