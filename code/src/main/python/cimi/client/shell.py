@@ -18,9 +18,11 @@
 from ConfigParser import SafeConfigParser
 import requests
 
-import stratuslab_cimi.utils as utils
+import cimi.client.utils as utils
 
-class Shell(Object):
+class Shell(object):
+
+    session = None
 
     @staticmethod
     def initialize(endpoint=None, ssl_verify=None, filename=None):
@@ -36,4 +38,4 @@ class Shell(Object):
         s = utils.initialize_session(ssl_verify)
         options['session'] = s
 
-        self.options = options
+        Shell.session = s

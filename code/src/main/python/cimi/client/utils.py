@@ -20,6 +20,7 @@ import requests
 
 CFG_SECTION_NAME = 'cimi-client'
 
+
 def initialize_session(ssl_verify=True):
     """
     Creates new session that will request JSON representations
@@ -27,25 +28,26 @@ def initialize_session(ssl_verify=True):
     certificate.
     """
     s = requests.Session()
-    s.headers.update('content-type', 'application/json')
+    s.headers.update({'content-type': 'application/json'})
     s.verify = ssl_verify
-    
+
     return s
+
 
 def read_options(filename=None):
     """
     Reads the CIMI client options from the given configuration
-    file.  The file must be in the standard 'ini' format with 
+    file.  The file must be in the standard 'ini' format with
     the parameters located in the [cimi-client] section.  The
     accepted parameters are 'endpoint', and 'ssl_verify'.
-    
-    The endpoint has no default and must be specified.  The 
-    flag ssl_verify defaults to True.  This will need to be 
+
+    The endpoint has no default and must be specified.  The
+    flag ssl_verify defaults to True.  This will need to be
     set to False if self-signed certificates are used on the
     server.
     """
-    defaults = {'ssl_verify': True}
-    
+    defaults = {'ssl_verify': 'true'}
+
     if not filename is None:
         cfg_parser = SafeConfigParser(defaults)
         cfg_parser.read(filename)
