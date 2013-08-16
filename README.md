@@ -30,7 +30,7 @@ To use the client, you must have access to a CIMI service.  With the
 endpoint of that service, you can create a CloudEntryPoint instance:
 
     >>> from cimi.client.cloud_entry_point import CloudEntryPoint
-    >>> cep = CloudEntryPoint('https://onehost-5.lal.in2p3.fr:8082/', ssl_verify=False)
+    >>> cep = CloudEntryPoint('https://cimi.example.org:8082/', ssl_verify=False)
 
 The CloudEntryPoint, as in the specification, catalogs the types of
 resources available and acts as the interface to a given CIMI cloud
