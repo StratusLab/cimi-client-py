@@ -36,9 +36,9 @@ The CloudEntryPoint, as in the specification, catalogs the types of
 resources available and acts as the interface to a given CIMI cloud
 infrastructure.  The object supports the following methods:
 
-  * cep.show(): prints the CloudEntryPoint data to stdout
-  * cep.keys(): provides the names (keys) of the resource collections
-  * cep['collection']: returns Resource for given collection
+  * `cep.show()`: prints the CloudEntryPoint data to stdout
+  * `cep.keys()`: provides the names (keys) of the resource collections
+  * `cep['collection']`: returns Resource for given collection
 
 It also supports the action methods shown below for Resource objects,
 although typically only the 'edit' action will be supported for
@@ -47,13 +47,14 @@ CloudEntryPoints.
 All of the rest of the cloud resources are represented by Resource
 objects.  These support:
 
-  * r.show(): prints the CloudEntryPoint data to stdout
-  * r.keys(): provides the names (keys) of the resource collections
-  * r['collection']: returns Resource for given collection
-  * r.do(action, data): performs the given actions
-  * r.add(data): convenience method for r.do('add', data)
-  * r.edit(data): convenience method for r.do('edit', data)
-  * r.delete(): convenience method for r.do('delete', None)
+  * `r.show()`: prints the CloudEntryPoint data to stdout
+  * `r.keys()`: provides the names (keys) of the resource collections
+  * `r['collection']`: returns Resource for given collection
+  * `r.allowed_actions()`: list available actions
+  * `r.do(action, data)`: performs the given actions
+  * `r.add(data)`: convenience method for r.do('add', data)
+  * `r.edit(data)`: convenience method for r.do('edit', data)
+  * `r.delete()`: convenience method for r.do('delete', None)
 
 To list the available collections and get the resource for one
 particular collection, do the following:
@@ -86,13 +87,11 @@ the Resource object for one of them:
          "memory": 2048, 
          "operations": [
              {
-                 "href":
-                 "MachineConfiguration/ed193d5b-ec5c-43ce-bcc9-6aa024eda322", 
+                 "href": "MachineConfiguration/ed193d5b-ec5c-43ce-bcc9-6aa024eda322", 
                  "rel": "edit"
              }, 
              {
-                 "href":
-                 "MachineConfiguration/ed193d5b-ec5c-43ce-bcc9-6aa024eda322", 
+                 "href": "MachineConfiguration/ed193d5b-ec5c-43ce-bcc9-6aa024eda322", 
                  "rel": "delete"
              }
          ], 
@@ -129,9 +128,9 @@ Feedback and Bug Reports
 
 This code is in an alpha state and quickly evolving along with the
 StratusLab CIMI server.  Nonetheless, feedback on the code and its
-functionality is appreciated; please send this feedback to the address
-support@stratuslab.eu.  Specific bug reports can be provided via the
-GitHub issues for this project. 
+functionality is appreciated; please send this feedback to the
+[support mailing list](mailto:support@stratuslab.eu).  Specific bug
+reports can be provided via the GitHub issues for this project.
 
 
 License
