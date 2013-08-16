@@ -17,6 +17,7 @@
 
 from ConfigParser import SafeConfigParser
 import requests
+import urlparse
 
 CFG_SECTION_NAME = 'cimi-client'
 
@@ -32,6 +33,26 @@ def initialize_session(ssl_verify=True):
     s.verify = ssl_verify
 
     return s
+
+
+def extract_operations(base_uri, data):
+
+    operations = {}
+
+    try:
+        ops = data['operations']
+        for op in ops:
+            rel = op['rel']
+            href = resolve_href(base_uri, op['href'])
+            operations[rel] = href
+    except Exception:
+        pass
+
+    return operations
+
+
+def resolve_href(base_uri, href):
+    return urlparse.urljoin(base_uri, href)
 
 
 def read_options(filename=None):
