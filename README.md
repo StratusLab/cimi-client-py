@@ -16,7 +16,8 @@ package just run:
 
     $ mvn clean install
 
-The package will appear in the subdirectory `target/pypi-pkg/dist`. 
+The package will appear in the subdirectory
+`pypi/target/pypi-pkg/dist/`.
 
 If you wish to run the defined tests, add the option `-DNOSETESTS` to
 the above command.
@@ -28,8 +29,8 @@ Using the Client
 To use the client, you must have access to a CIMI service.  With the
 endpoint of that service, you can create a CloudEntryPoint instance:
 
->>> from cimi.client.cloud_entry_point import CloudEntryPoint
->>> cep = CloudEntryPoint('https://onehost-5.lal.in2p3.fr:8082/', ssl_verify=False)
+    >>> from cimi.client.cloud_entry_point import CloudEntryPoint
+    >>> cep = CloudEntryPoint('https://onehost-5.lal.in2p3.fr:8082/', ssl_verify=False)
 
 The CloudEntryPoint, as in the specification, catalogs the types of
 resources available and acts as the interface to a given CIMI cloud
