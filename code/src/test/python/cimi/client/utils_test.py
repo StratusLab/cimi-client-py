@@ -89,7 +89,7 @@ class UtilsTest(unittest.TestCase):
         self.assertTrue(s.verify)
 
     def testSessionInitializationWithoutSSLVerify(self):
-        s = utils.initialize_session(ssl_verify='false')
+        s = utils.initialize_session(ssl_verify=False)
         self.assertEqual(s.headers['content-type'], 'application/json')
         self.assertFalse(s.verify)
 
