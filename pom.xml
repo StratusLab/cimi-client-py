@@ -23,7 +23,7 @@ direct use and a library for programmatic access.
   <parent>
     <groupId>eu.stratuslab</groupId>
     <artifactId>distribution</artifactId>
-    <version>13.10.0-SNAPSHOT</version>
+    <version>13.10.0</version>
   </parent>
 
   <modules>
