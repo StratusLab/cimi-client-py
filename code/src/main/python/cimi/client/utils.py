@@ -22,15 +22,20 @@ import urlparse
 CFG_SECTION_NAME = 'cimi-client'
 
 
-def initialize_session(ssl_verify=True):
+def initialize_session(ssl_verify=True, cert=None):
     """
-    Creates new session that will request JSON representations
-    of resources and by default will verify the server's SSL
-    certificate.
+    Creates new requests session that will request JSON representations of
+    resources.  By default, the SSL server certificate will be validated.
+    A client certificate may be provided (either as a single file name or
+    as a tuple with the certificate/key in separate file).
     """
     s = requests.Session()
     s.headers.update({'content-type': 'application/json'})
     s.verify = ssl_verify
+    s.allow_redirects = False
+
+    if cert is not None:
+        s.cert = cert
 
     return s
 

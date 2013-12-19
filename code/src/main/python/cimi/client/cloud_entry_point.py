@@ -23,8 +23,7 @@ class CloudEntryPoint(Resource):
 
     resourceURI = 'http://schemas.dmtf.org/cimi/1/CloudEntryPoint'
 
-    def __init__(self, endpoint, ssl_verify=True):
-        session = utils.initialize_session(ssl_verify)
+    def __init__(self, endpoint, session):
         super(CloudEntryPoint, self).__init__(session, None, endpoint)
 
     def validate_data(self):
