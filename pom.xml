@@ -4,7 +4,7 @@
 
   <groupId>eu.stratuslab.cimi</groupId>
   <artifactId>cimi-client-py</artifactId>
-  <version>14.06.0_RC5-SNAPSHOT</version>
+  <version>14.06.0_RC5</version>
   <name>StratusLab CIMI Client (POM)</name>
 
   <url>http://github.com/StratusLab/cimi-client-py</url>
@@ -50,7 +50,7 @@ direct use and a library for programmatic access.
   <scm>
     <connection>scm:git:ssh://git@github.com/StratusLab/cimi-client-py.git</connection>
     <developerConnection>scm:git:ssh://git@github.com/StratusLab/cimi-client-py.git</developerConnection>
-    <tag>HEAD</tag>
+    <tag>cimi-client-py-14.06.0_RC5</tag>
   </scm>
 
   <repositories>
