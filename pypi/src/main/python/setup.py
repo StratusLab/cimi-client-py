@@ -28,11 +28,24 @@ setup(
     packages=[
         'cimi',
         'cimi.client',
+        'cimi.client.api',
+        'cimi.client.cli',
     ],
 
     entry_points={
         'console_scripts': [
-            'cimi = cimi.client.main:main',
+            'cimi = cimi.client.cli.main:main',
+        ],
+
+        'cimi.client': [
+            'cfg-set = cimi.client.cli.cfg:Set',
+            'cfg-get = cimi.client.cli.cfg:Get',
+            'cfg-delete = cimi.client.cli.cfg:Delete',
+            'cfg-show = cimi.client.cli.cfg:Show',
+
+            'collections = cimi.client.cli.resources:Collections',
+            'show = cimi.client.cli.resources:Show',
+            'list = cimi.client.cli.resources:List',
         ],
     },
 
@@ -52,7 +65,7 @@ setup(
     ],
 
     install_requires=[
-        "requests >= 1.2.3",
+        "requests >= 2.3.0",
         "cliff >= 1.5.2",
     ],
 )
