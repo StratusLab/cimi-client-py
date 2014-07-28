@@ -20,7 +20,7 @@ import unittest
 import os
 import tempfile
 
-import cimi.client.utils as utils
+import cimi.client.api.utils as utils
 
 class UtilsTest(unittest.TestCase):
 

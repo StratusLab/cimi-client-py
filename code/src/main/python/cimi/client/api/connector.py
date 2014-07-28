@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 #
 # Copyright (c) 2013, Centre National de la Recherche Scientifique (CNRS)
 #
@@ -17,8 +17,8 @@
 
 import string
 
-import cimi.client.utils as utils
-from cimi.client.cloud_entry_point import CloudEntryPoint
+import cimi.client.api.utils as utils
+from cimi.client.api.cloud_entry_point import CloudEntryPoint
 
 
 class Connector:

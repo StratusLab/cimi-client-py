@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 #
 # Copyright (c) 2013, Centre National de la Recherche Scientifique (CNRS)
 #
@@ -15,8 +15,8 @@
 # limitations under the License.
 #
 
-import cimi.client.utils as utils
-from cimi.client.resource import Resource
+import cimi.client.api.utils as utils
+from cimi.client.api.resource import Resource
 
 
 class CloudEntryPoint(Resource):

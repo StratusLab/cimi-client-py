@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 #
 # Copyright (c) 2013, Centre National de la Recherche Scientifique (CNRS)
 #
@@ -16,9 +16,11 @@
 #
 
 import json
-import cimi.client.utils as utils
 import re
+
 import requests
+
+import cimi.client.api.utils as utils
 
 
 class Resource(object):
